@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilemapAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: f1da42d611ca34c85a8ed38fbb3cdfb7, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 7417854117171070515, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: 6504199520268634699, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -6335807174557535590, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: 1670366270698354627, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: 1967355245189474166, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: 5857737132954185304, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -127564689021920248, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -4667194183563279295, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -2742896055103290408, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -1996570365155110895, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -8685896388806333096, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: 8355358208132827708, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -4417652872061292416, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -4081044464988513472, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -8935521079043034860, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -4436649299647737913, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
+  - {fileID: -898201131174279650, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: 2549555114951047400, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: -2499836191962927088, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: -930207280902182715, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: 4823558217802821560, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: -3766305887361492527, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: 4252869761871440881, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: 3041897164867490823, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: 3476268782356647881, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  - {fileID: -5312732666240213166, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PlayerTileset_9
+  - PlayerTileset_8
+  - PlayerTileset_1
+  - PlayerTileset_0
+  - PlayerTileset_3
+  - PlayerTileset_2
+  - PlayerTileset_5
+  - PlayerTileset_4
+  - PlayerTileset_7
+  - PlayerTileset_6
+  - PlayerTileset_10
+  - PlayerTileset_11
+  - PlayerTileset_12
+  - PlayerTileset_13
+  - PlayerTileset_14
+  - PlayerTileset_15
+  - GroundTileset_0
+  - GroundTileset_9
+  - GroundTileset_8
+  - GroundTileset_7
+  - GroundTileset_6
+  - GroundTileset_5
+  - GroundTileset_4
+  - GroundTileset_3
+  - GroundTileset_2
+  - GroundTileset_1
+  m_Tag: TilemapAtlas
+  m_IsVariant: 0
