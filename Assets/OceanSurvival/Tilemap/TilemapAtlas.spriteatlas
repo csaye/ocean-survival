@@ -46,22 +46,6 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 7417854117171070515, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: 6504199520268634699, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -6335807174557535590, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: 1670366270698354627, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: 1967355245189474166, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: 5857737132954185304, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -127564689021920248, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -4667194183563279295, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -2742896055103290408, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -1996570365155110895, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -8685896388806333096, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: 8355358208132827708, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -4417652872061292416, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -4081044464988513472, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -8935521079043034860, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
-  - {fileID: -4436649299647737913, guid: 490b2b273ac22449bb2bd91b806fa64c, type: 3}
   - {fileID: -898201131174279650, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   - {fileID: 2549555114951047400, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   - {fileID: -2499836191962927088, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
@@ -73,22 +57,6 @@ SpriteAtlas:
   - {fileID: 3476268782356647881, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   - {fileID: -5312732666240213166, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   m_PackedSpriteNamesToIndex:
-  - PlayerTileset_9
-  - PlayerTileset_8
-  - PlayerTileset_1
-  - PlayerTileset_0
-  - PlayerTileset_3
-  - PlayerTileset_2
-  - PlayerTileset_5
-  - PlayerTileset_4
-  - PlayerTileset_7
-  - PlayerTileset_6
-  - PlayerTileset_10
-  - PlayerTileset_11
-  - PlayerTileset_12
-  - PlayerTileset_13
-  - PlayerTileset_14
-  - PlayerTileset_15
   - GroundTileset_0
   - GroundTileset_9
   - GroundTileset_8

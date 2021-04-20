@@ -6,6 +6,7 @@ namespace OceanSurvival
     {
         [Header("References")]
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Animator animator;
 
         private const float Speed = 3;
 
@@ -23,6 +24,14 @@ namespace OceanSurvival
 
             // Update rigidbody velocity
             rb.velocity = direction * Speed;
+
+            // Set animator values
+            if (direction != Vector2.zero)
+            {
+                animator.SetFloat("Horizontal", direction.x);
+                animator.SetFloat("Vertical", direction.y);
+            }
+            animator.SetFloat("Speed", direction.magnitude);
         }
     }
 }
