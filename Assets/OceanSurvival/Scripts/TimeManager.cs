@@ -7,9 +7,11 @@ namespace OceanSurvival
     {
         [Header("Attributes")]
         [SerializeField] private float secondsPerHour;
+        [SerializeField] private Color dayColor, nightColor;
 
         [Header("References")]
         [SerializeField] private TextMeshProUGUI timeText;
+        [SerializeField] private Light lighting;
 
         private float lastUpdateTime;
 
@@ -37,12 +39,16 @@ namespace OceanSurvival
                 else _hours = value;
 
                 UpdateTimeText();
+                UpdateLighting();
             }
         }
 
         private void Awake()
         {
             lastUpdateTime = Time.time;
+
+            UpdateTimeText();
+            UpdateLighting();
         }
 
         private void Update()
@@ -62,6 +68,16 @@ namespace OceanSurvival
         private void UpdateTimeText()
         {
             timeText.text = $"Day {Days} Hour {Hours}";
+        }
+
+        // Linearly interpolates between two colors
+        private Color LerpColor(Color a, Color b, float t) => (1 - t) * a + t * b;
+
+        // Updates scene lighting based on current hour
+        private void UpdateLighting()
+        {
+            float t = (float)Mathf.Abs(Hours - 12) / 12;
+            lighting.color = LerpColor(dayColor, nightColor, t);
         }
     }
 }
