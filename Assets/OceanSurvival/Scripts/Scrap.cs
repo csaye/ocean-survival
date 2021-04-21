@@ -6,7 +6,7 @@ namespace OceanSurvival
     public class Scrap : MonoBehaviour, IInteractable
     {
         [Header("Attributes")]
-        [SerializeField] private Item pickupItem;
+        [SerializeField] private ItemCount pickupItem;
         
         [Header("References")]
         [SerializeField] private Rigidbody2D rb;

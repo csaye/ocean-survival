@@ -11,9 +11,8 @@ namespace OceanSurvival.UI
         [SerializeField] private Color normalColor, selectedColor;
 
         [Header("References")]
-        [SerializeField] private Image slotImage;
         [SerializeField] private TextMeshProUGUI countText;
-        [SerializeField] private Image itemImage;
+        [SerializeField] private Image slotImage, itemImage;
         [SerializeField] private Sprite transparent;
 
         // Item count
@@ -24,40 +23,40 @@ namespace OceanSurvival.UI
             set
             {
                 _count = value;
-                if (Count == 0) ItemID = 0;
+                if (Count == 0) _item = 0;
 
                 // Update count text
-                countText.text = Count < 2 ? "" : Count.ToString();
+                countText.text = Count > 1 ? Count.ToString() : "";
             }
         }
         
-        // Item ID
-        private int _itemID = 0;
-        public int ItemID
+        // Item
+        private Item _item = 0;
+        public Item Item
         {
-            get { return _itemID; }
+            get { return _item; }
             set
             {
-                _itemID = value;
-                if (ItemID == 0) Count = 0;
+                _item = value;
+                if (Item == 0) _count = 0;
 
                 // Update item sprite
-                itemImage.sprite = ItemID == 0 ? transparent : Inventory.Instance.GetItemSprite(ItemID);
+                itemImage.sprite = Item == 0 ? transparent : Inventory.Instance.GetItemSprite(Item);
             }
         }
 
         // Whether slot is empty
-        public bool IsEmpty => Count == 0 || ItemID == 0;
+        public bool IsEmpty => Count == 0 || Item == 0;
 
         // Sets item ID and count to given values
-        public void SetSlot(int itemID, int count)
+        public void SetSlot(Item item, int count)
         {
-            ItemID = itemID;
+            Item = item;
             Count = count;
         }
 
         // Selects current slot
-        public void ClickSlot() => Inventory.Instance.SelectSlot(slotIndex);
+        public void OnClick() => Inventory.Instance.SelectSlot(slotIndex);
 
         // Sets slot color based on whether selected
         public void SetSelected(bool selected) => slotImage.color = selected ? selectedColor : normalColor;
