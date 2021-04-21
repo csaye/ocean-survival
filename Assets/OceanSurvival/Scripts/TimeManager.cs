@@ -76,14 +76,11 @@ namespace OceanSurvival
             timeText.text = $"Day {Days} Hour {Hours}";
         }
 
-        // Linearly interpolates between two colors
-        private Color LerpColor(Color a, Color b, float t) => (1 - t) * a + t * b;
-
         // Updates scene lighting based on current hour
         private void UpdateLighting()
         {
             float t = (float)Mathf.Abs(Hours - 12) / 12;
-            lighting.color = LerpColor(dayColor, nightColor, t);
+            lighting.color = Operation.LerpColor(dayColor, nightColor, t);
         }
     }
 }
