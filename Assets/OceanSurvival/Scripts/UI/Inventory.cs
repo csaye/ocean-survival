@@ -20,6 +20,7 @@ namespace OceanSurvival.UI
 
         private int selectedSlotIndex = 0;
 
+        public Sprite GetItemSprite(Item item) => GetItemSprite((int)item);
         public Sprite GetItemSprite(int itemID) => itemSprites[itemID];
 
         private void Awake()
@@ -33,28 +34,69 @@ namespace OceanSurvival.UI
         }
 
         // Adds given item to inventory
-        public void AddItem(Item item) => AddItem((int)item, 1);
-        public void AddItem(int itemID) => AddItem(itemID, 1);
-        public void AddItem(int itemID, int count)
+        public void AddItem(ItemCount itemCount) => AddItem(itemCount.item, itemCount.count);
+        public void AddItem(Item item, int count)
         {
+            // For each inventory slot
             for (int i = 0; i < inventorySlots.Length; i++)
             {
-                // Get item at inventory position
+                // Get slot at inventory position
                 InventorySlot slot = inventorySlots[i];
 
                 // If item at position empty, set item
                 if (slot.IsEmpty)
                 {
-                    inventorySlots[i].SetSlot(itemID, count);
+                    inventorySlots[i].SetSlot(item, count);
                     return;
                 }
                 // If stackable to position, stack
-                else if (slot.ItemID == itemID)
+                else if (slot.Item == item)
                 {
                     inventorySlots[i].Count += count;
                     return;
                 }
             }
+        }
+
+        // Returns whether inventory currently has item
+        public bool HasItem(ItemCount itemCount) => HasItem(itemCount.item, itemCount.count);
+        public bool HasItem(Item item, int count)
+        {
+            // For each inventory slot
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                // Get slot at inventory position
+                InventorySlot slot = inventorySlots[i];
+
+                // If slot has item, return true
+                if (slot.Item == item && slot.Count >= count) return true;
+            }
+
+            // If no slots have item, return false
+            return false;
+        }
+
+        // Removes given item from inventory and returns whether successful
+        public bool RemoveItem(ItemCount itemCount) => RemoveItem(itemCount.item, itemCount.count);
+        public bool RemoveItem(Item item, int count)
+        {
+            // For each inventory slot
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                // Get slot at inventory position
+                InventorySlot slot = inventorySlots[i];
+
+                // If slot has item
+                if (slot.Item == item && slot.Count >= count)
+                {
+                    // Remove item and return true
+                    inventorySlots[i].Count -= count;
+                    return true;
+                }
+            }
+
+            // If no slots have item, return false
+            return false;
         }
 
         // Selects given slot
