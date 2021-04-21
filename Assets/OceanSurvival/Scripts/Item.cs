@@ -4,6 +4,7 @@
     {
         None,
         Wood,
-        Stone
+        Stone,
+        Seaweed
     }
 }

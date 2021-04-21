@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8971217052052268969}
   - component: {fileID: 8971217052052268966}
   - component: {fileID: 8971217052052268965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ScrapStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.5, y: 0.5}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.48
 --- !u!50 &8971217052052268965
 Rigidbody2D:
   serializedVersion: 4
