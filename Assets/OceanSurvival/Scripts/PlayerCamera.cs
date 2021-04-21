@@ -8,6 +8,7 @@ namespace OceanSurvival
         [SerializeField] private Camera cam;
         [SerializeField] private Transform playerTransform;
 
+        public Vector2 MouseWorldPoint => cam.ScreenToWorldPoint(Input.mousePosition);
         private Vector2 MinWorldPoint => cam.ScreenToWorldPoint(Vector2.zero);
         private Vector2 MaxWorldPoint => cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 

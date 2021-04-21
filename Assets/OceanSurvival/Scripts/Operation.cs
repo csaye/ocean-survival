@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Operation : MonoBehaviour
+namespace OceanSurvival
 {
-    // Start is called before the first frame update
-    void Start()
+    public static class Operation
     {
-        
-    }
+        private const float Epsilon = 0.05f;
+        private static readonly Vector2 TileSize = Vector2.one - new Vector2(Epsilon, Epsilon);
+        private static readonly Vector2 Vector2Half = new Vector2(0.5f, 0.5f);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static Collider2D[] CollidersInTile(Vector2Int position)
+        {
+            return Physics2D.OverlapBoxAll(position + Vector2Half, TileSize, 0);
+        }
     }
 }
