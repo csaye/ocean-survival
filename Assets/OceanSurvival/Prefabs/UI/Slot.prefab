@@ -263,8 +263,8 @@ MonoBehaviour:
   slotIndex: 0
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
-  slotImage: {fileID: 5139976276347863340}
   countText: {fileID: 5139976275774132882}
+  slotImage: {fileID: 5139976276347863340}
   itemImage: {fileID: 5139976276236957702}
   transparent: {fileID: 21300000, guid: 20a2ec06359d148d38e1c3903ca8f005, type: 3}
 --- !u!222 &5139976276347863341
@@ -348,7 +348,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1627762748122878334}
-        m_MethodName: ClickSlot
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

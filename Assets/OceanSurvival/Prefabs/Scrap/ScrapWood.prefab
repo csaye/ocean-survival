@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0051e0b4292f48c5860b8de266e442b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupItem: 1
+  pickupItem:
+    item: 1
+    count: 1
   rb: {fileID: 689272764236632488}
 --- !u!58 &689272764236632491
 CircleCollider2D:
