@@ -17,7 +17,7 @@ namespace OceanSurvival
 
         public static EnergyBar Instance;
         
-        private const int MaxEnergy = 100;
+        public const int MaxEnergy = 100;
 
         private int _energy = MaxEnergy;
         public int Energy

@@ -18,6 +18,15 @@ namespace OceanSurvival
         private const float Speed = 3;
         private const float MaxReach = 6;
 
+        private readonly Item[] FishingItems = new Item[]
+        {
+            Item.Wood,
+            Item.Stone,
+            Item.Seaweed,
+            Item.Fish
+        };
+        private Item FishingItem() => FishingItems[Random.Range(0, FishingItems.Length)];
+
         private Vector2 direction;
 
         private void Update()
@@ -100,10 +109,46 @@ namespace OceanSurvival
                 // Use selected item
                 Item selectedItem = Inventory.Instance.SelectedSlot.Item;
                 
-                // Set tile to raft and decrement inventory slot
-                if (selectedItem == Item.Raft && Map.Instance.SetRaft(tilePosition))
+                // Set tile to raft
+                if (selectedItem == Item.Raft)
                 {
-                    Inventory.Instance.SelectedSlot.Count--;
+                    // If raft placed, decrement inventory slot
+                    if (Map.Instance.SetRaft(tilePosition)) Inventory.Instance.SelectedSlot.Count--;
+                }
+                // Eat seaweed
+                else if (selectedItem == Item.Seaweed)
+                {
+                    // If energy not maxed
+                    if (EnergyBar.Instance.Energy < EnergyBar.MaxEnergy)
+                    {
+                        // Increment energy and decrement slot
+                        EnergyBar.Instance.Energy += 5;
+                        Inventory.Instance.SelectedSlot.Count--;
+                    }
+                }
+                // Eat fish
+                else if (selectedItem == Item.Fish)
+                {
+                    // If energy not maxed
+                    if (EnergyBar.Instance.Energy < EnergyBar.MaxEnergy)
+                    {
+                        // Increment energy and decrement slot
+                        EnergyBar.Instance.Energy += 15;
+                        Inventory.Instance.SelectedSlot.Count--;
+                    }
+                }
+                // Use fishing rod
+                else if (selectedItem == Item.FishingRod)
+                {
+                    // If water tile at position
+                    if (Map.Instance.IsWaterTile(tilePosition))
+                    {
+                        // Decrement energy
+                        EnergyBar.Instance.Energy -= 10;
+
+                        // Add random item to inventory
+                        Inventory.Instance.AddItem(FishingItem(), 1);
+                    }
                 }
             }
         }

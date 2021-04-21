@@ -40,6 +40,7 @@ namespace OceanSurvival
                 else _hours = value;
 
                 OnHourChange();
+                EnergyBar.Instance.Energy--;
             }
         }
 

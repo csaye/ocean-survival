@@ -49,6 +49,12 @@ namespace OceanSurvival
             }
         }
 
+        // Returns whether water tile at given position
+        public bool IsWaterTile(Vector2Int position)
+        {
+            return groundTilemap.GetTile((Vector3Int)position) == waterTile;
+        }
+
         // Sets given position to raft tile
         public bool SetRaft(Vector2Int position)
         {
