@@ -14,6 +14,8 @@ namespace OceanSurvival
         [SerializeField] private Light lighting;
         [SerializeField] private ScrapManager scrapManager;
 
+        public static TimeManager Instance;
+
         private float lastUpdateTime;
 
         // Days elapsed since start of game
@@ -44,17 +46,21 @@ namespace OceanSurvival
             }
         }
 
+        public float GameSpeedModifier { get; set; } = 1;
+
         private void Awake()
         {
             lastUpdateTime = Time.time;
 
             OnHourChange();
+
+            Instance = this;
         }
 
         private void Update()
         {
             // If seconds per hour passed
-            if (Time.time - lastUpdateTime > secondsPerHour)
+            if (Time.time - lastUpdateTime > secondsPerHour / GameSpeedModifier)
             {
                 // Update last update time
                 lastUpdateTime = Time.time;

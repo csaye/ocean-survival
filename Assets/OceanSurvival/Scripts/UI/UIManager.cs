@@ -15,6 +15,10 @@ namespace OceanSurvival.UI
 
         private void Awake()
         {
+            MenuOpen = false;
+            GameOver = false;
+            Time.timeScale = 1;
+
             Instance = this;
         }
 
