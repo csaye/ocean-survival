@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using OceanSurvival.UI;
+using UnityEngine;
 
 namespace OceanSurvival
 {
@@ -21,9 +22,9 @@ namespace OceanSurvival
 
         private void Update()
         {
-            Move();
-            Animate();
-            Interact();
+            if (!UIManager.Instance.MenuOpen) Move(); // If menu not open, move
+            Animate(); // Animate player based on movement
+            Interact(); // Check for interactions
         }
 
         private void Move()

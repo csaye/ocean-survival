@@ -9,6 +9,12 @@ namespace OceanSurvival.UI
 
         [Header("References")]
         [SerializeField] private InventorySlot[] inventorySlots;
+
+        private readonly KeyCode[] HotbarKeys = new KeyCode[]
+        {
+            KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5,
+            KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9, KeyCode.Alpha0
+        };
         
         public static Inventory Instance;
 
@@ -58,6 +64,25 @@ namespace OceanSurvival.UI
             inventorySlots[selectedSlotIndex].SetSelected(false);
             selectedSlotIndex = slotIndex;
             inventorySlots[selectedSlotIndex].SetSelected(true);
+        }
+
+        private void Update()
+        {
+            GetHotbarKey();
+        }
+
+        private void GetHotbarKey()
+        {
+            // For each hotbar key
+            for (int i = 0; i < HotbarKeys.Length; i++)
+            {
+                // If key pressed, select slot and return
+                if (Input.GetKeyDown(HotbarKeys[i]))
+                {
+                    SelectSlot(i);
+                    return;
+                }
+            }
         }
     }
 }
