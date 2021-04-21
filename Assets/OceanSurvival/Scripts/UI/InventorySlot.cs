@@ -57,7 +57,13 @@ namespace OceanSurvival.UI
 
         public void OnPointerEnter(PointerEventData e)
         {
-            if (!IsEmpty) Tooltip.Instance.Show($"{Count} {Item}");
+            if (!IsEmpty)
+            {
+                string tooltipText = $"{Count} {Item}";
+                if (Item == Item.Seaweed) tooltipText += "\n5 energy";
+                else if (Item == Item.Fish) tooltipText += "\n15 energy";
+                Tooltip.Instance.Show(tooltipText);
+            }
         }
         public void OnPointerExit(PointerEventData e) => Tooltip.Instance.Hide();
 
