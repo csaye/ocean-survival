@@ -3,6 +3,7 @@
     public enum Item
     {
         None,
-        Wood
+        Wood,
+        Stone
     }
 }
