@@ -24,9 +24,10 @@ namespace OceanSurvival.UI
             set
             {
                 _count = value;
+                if (Count == 0) ItemID = 0;
 
                 // Update count text
-                countText.text = Count == 0 ? "" : Count.ToString();
+                countText.text = Count < 2 ? "" : Count.ToString();
             }
         }
         
@@ -38,6 +39,7 @@ namespace OceanSurvival.UI
             set
             {
                 _itemID = value;
+                if (ItemID == 0) Count = 0;
 
                 // Update item sprite
                 itemImage.sprite = ItemID == 0 ? transparent : Inventory.Instance.GetItemSprite(ItemID);

@@ -27,6 +27,7 @@ namespace OceanSurvival.UI
         }
 
         // Adds given item to inventory
+        public void AddItem(Item item) => AddItem((int)item, 1);
         public void AddItem(int itemID) => AddItem(itemID, 1);
         public void AddItem(int itemID, int count)
         {
@@ -36,9 +37,17 @@ namespace OceanSurvival.UI
                 InventorySlot slot = inventorySlots[i];
 
                 // If item at position empty, set item
-                if (slot.IsEmpty) inventorySlots[i].SetSlot(itemID, count);
+                if (slot.IsEmpty)
+                {
+                    inventorySlots[i].SetSlot(itemID, count);
+                    return;
+                }
                 // If stackable to position, stack
-                else if (slot.ItemID == itemID) inventorySlots[i].Count += count;
+                else if (slot.ItemID == itemID)
+                {
+                    inventorySlots[i].Count += count;
+                    return;
+                }
             }
         }
 

@@ -12,6 +12,7 @@ namespace OceanSurvival
         [Header("References")]
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private Light lighting;
+        [SerializeField] private ScrapManager scrapManager;
 
         private float lastUpdateTime;
 
@@ -38,8 +39,7 @@ namespace OceanSurvival
                 }
                 else _hours = value;
 
-                UpdateTimeText();
-                UpdateLighting();
+                OnHourChange();
             }
         }
 
@@ -47,8 +47,7 @@ namespace OceanSurvival
         {
             lastUpdateTime = Time.time;
 
-            UpdateTimeText();
-            UpdateLighting();
+            OnHourChange();
         }
 
         private void Update()
@@ -62,6 +61,13 @@ namespace OceanSurvival
                 // Increment hours
                 Hours++;
             }
+        }
+
+        private void OnHourChange()
+        {
+            UpdateTimeText();
+            UpdateLighting();
+            scrapManager.SpawnScrap();
         }
 
         // Updates time text to current day and hour
