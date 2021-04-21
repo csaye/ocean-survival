@@ -23,7 +23,7 @@ namespace OceanSurvival.UI
             set
             {
                 _count = value;
-                if (Count == 0) _item = 0;
+                if (Count == 0) Item = 0;
 
                 // Update count text
                 countText.text = Count > 1 ? Count.ToString() : "";
@@ -38,7 +38,6 @@ namespace OceanSurvival.UI
             set
             {
                 _item = value;
-                if (Item == 0) _count = 0;
 
                 // Update item sprite
                 itemImage.sprite = Item == 0 ? transparent : Inventory.Instance.GetItemSprite(Item);

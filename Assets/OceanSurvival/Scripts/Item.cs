@@ -5,6 +5,7 @@
         None,
         Wood,
         Stone,
-        Seaweed
+        Seaweed,
+        Raft
     }
 }

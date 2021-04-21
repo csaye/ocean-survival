@@ -23,6 +23,8 @@ namespace OceanSurvival.UI
         public Sprite GetItemSprite(Item item) => GetItemSprite((int)item);
         public Sprite GetItemSprite(int itemID) => itemSprites[itemID];
 
+        public InventorySlot SelectedSlot => inventorySlots[selectedSlotIndex];
+
         private void Awake()
         {
             Instance = this;
@@ -40,19 +42,21 @@ namespace OceanSurvival.UI
             // For each inventory slot
             for (int i = 0; i < inventorySlots.Length; i++)
             {
-                // Get slot at inventory position
-                InventorySlot slot = inventorySlots[i];
-
-                // If item at position empty, set item
-                if (slot.IsEmpty)
-                {
-                    inventorySlots[i].SetSlot(item, count);
-                    return;
-                }
                 // If stackable to position, stack
-                else if (slot.Item == item)
+                if (inventorySlots[i].Item == item)
                 {
                     inventorySlots[i].Count += count;
+                    return;
+                }
+            }
+
+            // For each inventory slot
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                // If item at position empty, set item
+                if (inventorySlots[i].IsEmpty)
+                {
+                    inventorySlots[i].SetSlot(item, count);
                     return;
                 }
             }

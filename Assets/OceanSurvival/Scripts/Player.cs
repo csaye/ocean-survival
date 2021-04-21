@@ -73,7 +73,7 @@ namespace OceanSurvival
             highlightTransform.position = (Vector3Int)tilePosition;
 
             // If click
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 // For each collider in tile position
                 foreach (Collider2D col in Operation.CollidersInTile(tilePosition))
@@ -84,10 +84,19 @@ namespace OceanSurvival
                     // If interactable component not null
                     if (interactableComponent != null)
                     {
-                        // Interact and break
+                        // Interact and return
                         interactableComponent.Interact();
-                        break;
+                        return;
                     }
+                }
+
+                // Use selected item
+                Item selectedItem = Inventory.Instance.SelectedSlot.Item;
+                
+                // Set tile to raft and decrement inventory slot
+                if (selectedItem == Item.Raft && Map.Instance.SetRaft(tilePosition))
+                {
+                    Inventory.Instance.SelectedSlot.Count--;
                 }
             }
         }
