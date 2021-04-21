@@ -28,6 +28,7 @@ namespace OceanSurvival.UI
             {
                 // Toggle pause canvas
                 MenuOpen = !MenuOpen;
+                if (!MenuOpen) Tooltip.Instance.Hide();
                 pauseCanvas.SetActive(MenuOpen);
             }
         }

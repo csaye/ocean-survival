@@ -1,10 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace OceanSurvival.UI
 {
-    public class InventorySlot : MonoBehaviour
+    public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Attributes")]
         [SerializeField] private int slotIndex;
@@ -53,6 +54,12 @@ namespace OceanSurvival.UI
             Item = item;
             Count = count;
         }
+
+        public void OnPointerEnter(PointerEventData e)
+        {
+            if (!IsEmpty) Tooltip.Instance.Show($"{Count} {Item}");
+        }
+        public void OnPointerExit(PointerEventData e) => Tooltip.Instance.Hide();
 
         // Selects current slot
         public void OnClick() => Inventory.Instance.SelectSlot(slotIndex);

@@ -11,5 +11,10 @@
             item = _item;
             count = _count;
         }
+
+        public override string ToString()
+        {
+            return $"{count} {item}";
+        }
     }
 }
