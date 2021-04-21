@@ -8,6 +8,7 @@ namespace OceanSurvival
         [Header("References")]
         [SerializeField] private Tilemap groundTilemap;
         [SerializeField] private Tile waterTile, raftTile;
+        [SerializeField] private Tile[] stoneRaftTiles;
 
         public static Map Instance;
 
@@ -58,11 +59,38 @@ namespace OceanSurvival
         // Sets given position to raft tile
         public bool SetRaft(Vector2Int position)
         {
-            // If position already raft, return false
-            if (groundTilemap.GetTile((Vector3Int)position) == raftTile) return false;
+            // If position not water, return false
+            if (!IsWaterTile(position)) return false;
 
-            // If position not raft, set raft and return true
+            // Set raft and return true
             groundTilemap.SetTile((Vector3Int)position, raftTile);
+            return true;
+        }
+
+        // Sets given position to stone raft tile
+        public bool SetStoneRaft(Vector2Int position)
+        {
+            // If any positions not water, return false
+            for (int y = position.y; y > position.y - 2; y--)
+            {
+                for (int x = position.x; x < position.x + 2; x++)
+                {
+                    Vector2Int pos = new Vector2Int(x, y);
+                    if (!IsWaterTile(pos)) return false;
+                }
+            }
+
+            // Set stone raft and return true
+            int i = 0;
+            for (int y = position.y; y > position.y - 2; y--)
+            {
+                for (int x = position.x; x < position.x + 2; x++)
+                {
+                    Vector2Int pos = new Vector2Int(x, y);
+                    groundTilemap.SetTile((Vector3Int)pos, stoneRaftTiles[i]);
+                    i++;
+                }
+            }
             return true;
         }
     }

@@ -115,6 +115,12 @@ namespace OceanSurvival
                     // If raft placed, decrement inventory slot
                     if (Map.Instance.SetRaft(tilePosition)) Inventory.Instance.SelectedSlot.Count--;
                 }
+                // Set tile to stone raft
+                else if (selectedItem == Item.StoneRaft)
+                {
+                    // If stone raft placed, decrement inventory slot
+                    if (Map.Instance.SetStoneRaft(tilePosition)) Inventory.Instance.SelectedSlot.Count--;
+                }
                 // Eat seaweed
                 else if (selectedItem == Item.Seaweed)
                 {

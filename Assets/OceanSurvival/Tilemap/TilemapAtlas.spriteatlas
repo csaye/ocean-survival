@@ -47,8 +47,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: -898201131174279650, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
-  - {fileID: 2549555114951047400, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
-  - {fileID: -2499836191962927088, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   - {fileID: -930207280902182715, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   - {fileID: 4823558217802821560, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   - {fileID: -3766305887361492527, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
@@ -58,8 +56,6 @@ SpriteAtlas:
   - {fileID: -5312732666240213166, guid: 1247267d7d90c414bae59d10aaf55dd7, type: 3}
   m_PackedSpriteNamesToIndex:
   - GroundTileset_0
-  - GroundTileset_9
-  - GroundTileset_8
   - GroundTileset_7
   - GroundTileset_6
   - GroundTileset_5
