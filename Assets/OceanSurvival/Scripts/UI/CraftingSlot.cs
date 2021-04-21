@@ -10,6 +10,7 @@ namespace OceanSurvival.UI
         [Header("Attributes")]
         [SerializeField] private ItemCount[] input;
         [SerializeField] private ItemCount output;
+        [SerializeField] private bool singleUse = false;
 
         [Header("References")]
         [SerializeField] private TextMeshProUGUI countText;
@@ -20,7 +21,8 @@ namespace OceanSurvival.UI
         private void Start()
         {
             // Initialize tooltip text
-            foreach (ItemCount itemCount in input) tooltipText += itemCount.ToString() + "\n";
+            tooltipText = $"<u>{output}</u>\n";
+            foreach (ItemCount itemCount in input) tooltipText += $"{itemCount}\n";
 
             // Initialize count text and item image to output
             countText.text = output.count > 1 ? output.count.ToString() : "";
@@ -48,6 +50,14 @@ namespace OceanSurvival.UI
 
             // Add output item to inventory
             Inventory.Instance.AddItem(output);
+
+            // If single use
+            if (singleUse)
+            {
+                // Close tooltip and destroy self
+                Tooltip.Instance.Hide();
+                Destroy(gameObject);
+            }
         }
     }
 }

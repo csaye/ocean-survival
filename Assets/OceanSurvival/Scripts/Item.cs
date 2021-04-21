@@ -6,6 +6,7 @@
         Wood,
         Stone,
         Seaweed,
-        Raft
+        Raft,
+        FishingRod
     }
 }
