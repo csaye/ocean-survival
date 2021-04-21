@@ -22,9 +22,15 @@ namespace OceanSurvival
 
         private void Update()
         {
-            if (!UIManager.Instance.MenuOpen) Move(); // If menu not open, move
-            Animate(); // Animate player based on movement
-            Interact(); // Check for interactions
+            // If game over, hide highlight
+            if (UIManager.Instance.GameOver) highlightSpriteRenderer.sprite = transparent;
+            // If game not over
+            else
+            {
+                if (!UIManager.Instance.MenuOpen) Move(); // If menu not open, move
+                Animate(); // Animate player based on movement
+                Interact(); // Check for interactions
+            }
         }
 
         private void Move()
@@ -60,8 +66,9 @@ namespace OceanSurvival
             int tileY = (int)Mathf.Floor(mousePosition.y);
             Vector2Int tilePosition = new Vector2Int(tileX, tileY);
 
-            // If mouse over UI or tile out of reach
-            if (Operation.IsMouseOverUI() || Vector2.Distance(transform.position, tilePosition) > MaxReach)
+            // If out of reach or mouse over UI
+            bool outOfReach = Vector2.Distance(transform.position, tilePosition) > MaxReach;
+            if (outOfReach || Operation.IsMouseOverUI())
             {
                 // Disable highlight and return
                 highlightSpriteRenderer.sprite = transparent;
