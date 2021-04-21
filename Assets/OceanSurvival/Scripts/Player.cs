@@ -8,8 +8,14 @@ namespace OceanSurvival
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerCamera playerCamera;
+        
+        [Header("Highlight References")]
+        [SerializeField] private Transform highlightTransform;
+        [SerializeField] private SpriteRenderer highlightSpriteRenderer;
+        [SerializeField] private Sprite transparent, highlight;
 
         private const float Speed = 3;
+        private const float MaxReach = 6;
 
         private Vector2 direction;
 
@@ -47,15 +53,27 @@ namespace OceanSurvival
 
         private void Interact()
         {
-            // Click
+            // Get tile at mouse position
+            Vector2 mousePosition = playerCamera.MouseWorldPoint;
+            int tileX = (int)Mathf.Floor(mousePosition.x);
+            int tileY = (int)Mathf.Floor(mousePosition.y);
+            Vector2Int tilePosition = new Vector2Int(tileX, tileY);
+
+            // If mouse over UI or tile out of reach
+            if (Operation.IsMouseOverUI() || Vector2.Distance(transform.position, tilePosition) > MaxReach)
+            {
+                // Disable highlight and return
+                highlightSpriteRenderer.sprite = transparent;
+                return;
+            }
+            
+            // Enable highlight and move to position
+            highlightSpriteRenderer.sprite = highlight;
+            highlightTransform.position = (Vector3Int)tilePosition;
+
+            // If click
             if (Input.GetMouseButton(0))
             {
-                // Get tile at mouse position
-                Vector2 mousePosition = playerCamera.MouseWorldPoint;
-                int tileX = (int)Mathf.Floor(mousePosition.x);
-                int tileY = (int)Mathf.Floor(mousePosition.y);
-                Vector2Int tilePosition = new Vector2Int(tileX, tileY);
-
                 // For each collider in tile position
                 foreach (Collider2D col in Operation.CollidersInTile(tilePosition))
                 {
