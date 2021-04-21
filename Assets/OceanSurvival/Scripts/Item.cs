@@ -7,6 +7,7 @@
         Stone,
         Seaweed,
         Raft,
-        FishingRod
+        FishingRod,
+        Fish
     }
 }
